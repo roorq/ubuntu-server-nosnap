@@ -7,6 +7,23 @@ A bash script for **Ubuntu Server** that removes Snap completely, blocks it from
 ## 🚀 Quick start
 
 ```bash
+# Run straight from GitHub (asks for confirmation)
+sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/roorq/ubuntu-server-nosnap/main/remove-snap.sh)"
+
+# Same, without confirmation
+sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/roorq/ubuntu-server-nosnap/main/remove-snap.sh)" _ -y
+```
+
+> **Note:** `curl` is required. If you don't have it installed, run:
+> ```bash
+> sudo apt update && sudo apt install -y curl
+> ```
+
+Prefer to read the script before running it? Download it first:
+
+```bash
+curl -fsSLO https://raw.githubusercontent.com/roorq/ubuntu-server-nosnap/main/remove-snap.sh
+less remove-snap.sh
 chmod +x remove-snap.sh
 sudo ./remove-snap.sh        # asks for confirmation
 sudo ./remove-snap.sh -y     # no confirmation
@@ -64,7 +81,7 @@ Before purging each telemetry package, the script runs `apt-get -s purge` (a sim
 
 ## ⚠️ Notes
 
-- Run it on **Ubuntu Server**. On Ubuntu Desktop, removing snaps also removes the App Center, the snap Firefox and other apps. For the desktop, use [`ubuntu-snap-to-flatpak`](../ubuntu-snap-to-flatpak) and [`ubuntu-privacy`](../ubuntu-privacy).
+- Run it on **Ubuntu Server**. On Ubuntu Desktop, removing snaps also removes the App Center, the snap Firefox and other apps. For the desktop, use [`ubuntu-snap-to-flatpak`](https://github.com/roorq/ubuntu-snap-to-flatpak) and [`ubuntu-privacy`](https://github.com/roorq/ubuntu-privacy).
 - Data stored inside snaps (`/var/snap`, `~/snap`) is **deleted permanently**. Back it up first.
 - The script has been syntax-checked, but not yet run on a real Ubuntu Server.
 
